@@ -1,26 +1,23 @@
 # Load zip file from github repo
 if(!file.exists("./data")){dir.create("./data")}
-fileUrl <- "https://github.com/jpmart5/UCI_HAR_Dataset.zip/" 
-download.file(fileUrl,destfile="./data/UCI_HAR_Dataset.zip/")
-
-# Unzip dataSet to /data directory
-unzip(zipfile="./data/UCI_HAR_Dataset.zip/",exdir="./data")
+fileUrl <- "https://github.com/jpmart5/UCI_HAR_Dataset.zip/commit/ed0551a3a9a8c74de678d3aa6544232d8f575fa6" 
+download.file(fileUrl,destfile="./data/UCI_HAR_Dataset.zip")
 
 # Read in trng tables:
-x_train <- read.table("./data/UCI_HAR_Dataset/train/X_train.txt")
-y_train <- read.table("./data/UCI_HAR_Dataset/train/y_train.txt")
-subject_train <- read.table("./data/UCI_HAR_Dataset/train/subject_train.txt")
+x_train <- read.table("https://github.com/jpmart5/UCI_HAR_Dataset.zip/blob/ed0551a3a9a8c74de678d3aa6544232d8f575fa6/train/X_train.txt")
+y_train <- read.table("https://github.com/jpmart5/UCI_HAR_Dataset.zip/blob/ed0551a3a9a8c74de678d3aa6544232d8f575fa6/train/y_train.txt")
+subject_train <- read.table("https://github.com/jpmart5/UCI_HAR_Dataset.zip/blob/ed0551a3a9a8c74de678d3aa6544232d8f575fa6/train/subject_train.txt")
 
 # Read in testing tables fm data directory:
-x_test <- read.table("./data/UCI_HAR_Dataset/test/X_test.txt")
-y_test <- read.table("./data/UCI_HAR_Dataset/test/y_test.txt")
-subject_test <- read.table("./data/UCI_HAR_Dataset/test/subject_test.txt")
+x_test <- read.table("https://github.com/jpmart5/UCI_HAR_Dataset.zip/blob/master/test/X_test.txt")
+y_test <- read.table("https://github.com/jpmart5/UCI_HAR_Dataset.zip/blob/master/test/y_test.txt")
+subject_test <- read.table("https://github.com/jpmart5/UCI_HAR_Dataset.zip/blob/master/test/subject_test.txt")
 
 # Reading vector off of features table:
-features <- read.table('./data/UCI_HAR_Dataset/features.txt')
+features <- read.table('https://github.com/jpmart5/UCI_HAR_Dataset.zip/blob/master/features.txt')
 
 # Reading vector off of activity labels table:
-activityLabels = read.table('./data/UCI_HAR_Dataset/activity_labels.txt')
+activityLabels = read.table('https://github.com/jpmart5/UCI_HAR_Dataset.zip/blob/master/activity_labels.txt')
 
 # Assigning tables column labels:
 colnames(x_train) <- features[,2] 
